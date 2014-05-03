@@ -18,24 +18,22 @@ int main()
 
 	int r = 0;
 
-	while (r != rows) {
+	for (int r = 0; r != rows; ++r) {
 		std::string::size_type c = 0;
 		while (c != cols) {
-			if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1) {
-				cout << "*";
-				++c;
+			if (r == pad + 1 && c == pad + 1) {
+				cout << greeting;
+				c += greeting.size();
 			} else {
-				if (r == pad + 1 && c == pad + 1) {
-					cout << greeting;
-					c += greeting.size();
+				if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1) {
+					cout << "*";
 				} else {
 					cout << " ";
-					++c;
 				}
+				++c;
 			}
 		}
 		cout << std::endl;
-		++r;
 	}
 
 	return 0;
